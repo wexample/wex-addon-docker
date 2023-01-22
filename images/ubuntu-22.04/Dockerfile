@@ -4,7 +4,7 @@ FROM ubuntu:jammy-20221130
 LABEL authors="wexample <contact@wexample.com>"
 
 # Copy entrypoint.
-COPY ./project/addons/docker/images/ubuntu-22.04/entrypoint.sh /docker-entrypoint-ubuntu.sh
+COPY ./addons/docker/images/ubuntu-22.04/entrypoint.sh /docker-entrypoint-ubuntu.sh
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
