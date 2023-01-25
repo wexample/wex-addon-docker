@@ -21,23 +21,16 @@ containerStarted() {
     do
       local CONTAINER_NAME=$(wex docker::container/name -i="${CONTAINER_ID}")
       # Searched is running.
-      if [ ${CONTAINER_NAME} = "${NAME}" ];then
+      if [ "${CONTAINER_NAME}" = "${NAME}" ];then
         RUNS=true
+
+        # Only one is enough.
+        if [ "${ALL}" != true ];then
+          echo true
+          return
+        fi
       fi
     done;
-
-    # Expecting all runs.
-    if [ "${ALL}" = true ];then
-      if [ "${RUNS}" = false ];then
-        echo false
-        return
-      fi
-      # Or continue
-    # Only one can run
-    elif [ "${RUNS}" = true ];then
-      echo true
-      return
-    fi
   done;
 
   # All containers should runs,
