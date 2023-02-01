@@ -1,3 +1,4 @@
+#!/bin/bash
 
 _wexDockerFindImageDir() {
   local ADDONS_DIRS
