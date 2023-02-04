@@ -10,7 +10,7 @@ _wexDockerFindImageDir() {
     if [ -d "${DIR_IMAGES}" ]; then
       local IMAGES=($(ls -1 "${DIR_IMAGES}"))
 
-      for DIR_IMAGE in ${IMAGES}; do
+      for DIR_IMAGE in ${IMAGES[@]}; do
         if [ "${DIR_IMAGE}" = "${1}" ];then
           echo "${DIR_IMAGES}${DIR_IMAGE}/"
         fi
