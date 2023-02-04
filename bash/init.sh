@@ -64,7 +64,7 @@ _wexDockerImageBuild() {
   fi;
 
   # Set build context.
-  cd "${WEX_DIR_ROOT}../"
+  cd "${WEX_DIR_ROOT}"
 
   # Build
   docker build ${BUILD_QUIET} -t "${TAG_BASE}" -t "${TAG_BASE}":latest -f "${DOCKERFILE}" . ${BUILD_CACHE}
