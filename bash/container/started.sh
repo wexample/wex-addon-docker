@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 containerStartedArgs() {
+  _DESCRIPTION="Return true if one or many container is started"
   _ARGUMENTS=(
-    'names n "Names of containers separated by a comma. Return true only if one container is started." true'
-    'all a "All containers runs" false'
+    'names n "Names of containers separated by a comma. By default return true if any of them is started." true'
+    'all a "Expect all containers to be started" false'
   )
 }
 
@@ -19,7 +20,7 @@ containerStarted() {
     # Inspect not stopped containers
     for CONTAINER_ID in ${RUNNING[@]}
     do
-      local CONTAINER_NAME=$(wex docker::container/name -i="${CONTAINER_ID}")
+      local CONTAINER_NAME=$(wex app::container/name -i="${CONTAINER_ID}")
       # Searched is running.
       if [ "${CONTAINER_NAME}" = "${NAME}" ];then
         RUNS=true
