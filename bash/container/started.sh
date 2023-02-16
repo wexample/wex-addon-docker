@@ -10,7 +10,7 @@ containerStartedArgs() {
 
 containerStarted() {
   local RUNNING=$(docker ps -q)
-  local NAMES=$(wex string/split -t="${NAMES}")
+  local NAMES=$(wex default::string/split -t="${NAMES}")
 
   # Allow several names.
   for NAME in ${NAMES[@]}
