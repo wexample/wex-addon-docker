@@ -20,7 +20,9 @@ containerStarted() {
     # Inspect not stopped containers
     for CONTAINER_ID in ${RUNNING[@]}
     do
-      local CONTAINER_NAME=$(wex app::container/name -i="${CONTAINER_ID}")
+      local CONTAINER_NAME
+      CONTAINER_NAME=$(wex docker::container/name -i="${CONTAINER_ID}")
+
       # Searched is running.
       if [ "${CONTAINER_NAME}" = "${NAME}" ];then
         RUNS=true
