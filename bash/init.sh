@@ -25,7 +25,7 @@ _wexDockerImageBuild() {
   local DOCKERFILE=${DIR}Dockerfile
 
   NAME=$(basename "${DIR}")
-  DEPENDS_FROM=$(wex default::config/getValue -f="${DOCKERFILE}" -k=FROM)
+  DEPENDS_FROM=$(wex-exec default::config/getValue -f="${DOCKERFILE}" -k=FROM)
   DEPENDS_FROM_WEX=$(sed -e 's/wexample\/\([^:]\{0,\}\):.\{0,\}/\1/' <<< ${DEPENDS_FROM})
 
   # Build parent.

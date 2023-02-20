@@ -6,7 +6,7 @@ dockerIpArgs() {
 
 dockerIp() {
   # Docker IP is only localhost
-  if [ "$(wex system::system/os)" == "mac" ];then
+  if [ "$(wex-exec system::system/os)" == "mac" ];then
     echo "127.0.0.1"
     return
   fi
@@ -14,6 +14,6 @@ dockerIp() {
   if [ "$(command -v docker-machine)" ];then
     echo $(docker-machine ip)
   else
-    echo $(wex system::system/ip)
+    echo $(wex-exec system::system/ip)
   fi
 }

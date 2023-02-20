@@ -10,7 +10,7 @@ containerStartedArgs() {
 
 containerStarted() {
   local RUNNING=$(docker ps -q)
-  local NAMES=$(wex default::string/split -t="${NAMES}")
+  local NAMES=$(wex-exec default::string/split -t="${NAMES}")
 
   # Allow several names.
   for NAME in ${NAMES[@]}
@@ -21,7 +21,7 @@ containerStarted() {
     for CONTAINER_ID in ${RUNNING[@]}
     do
       local CONTAINER_NAME
-      CONTAINER_NAME=$(wex docker::container/name -i="${CONTAINER_ID}")
+      CONTAINER_NAME=$(wex-exec docker::container/name -i="${CONTAINER_ID}")
 
       # Searched is running.
       if [ "${CONTAINER_NAME}" = "${NAME}" ];then
