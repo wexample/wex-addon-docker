@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 containerRunsArgs() {
+  # shellcheck disable=SC2034
   _DESCRIPTION="Return true if docker container runs"
   # shellcheck disable=SC2034
   _ARGUMENTS=(

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 dockerIpArgs() {
+  # shellcheck disable=SC2034
   _DESCRIPTION="Return the current docker local ip"
 }
 

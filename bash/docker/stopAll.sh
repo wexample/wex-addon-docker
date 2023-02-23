@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 dockerStopAllArgs() {
+  # shellcheck disable=SC2034
   _DESCRIPTION="Stops every running Docker container / network / volume"
 }
 

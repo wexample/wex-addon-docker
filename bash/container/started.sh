@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 containerStartedArgs() {
+  # shellcheck disable=SC2034
   _DESCRIPTION="Return true if one or many container is started"
   # shellcheck disable=SC2034
   _ARGUMENTS=(

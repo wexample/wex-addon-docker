@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 containerNameArgs() {
+  # shellcheck disable=SC2034
   _DESCRIPTION="Return full container name based on its id"
   # shellcheck disable=SC2034
   _ARGUMENTS=(
