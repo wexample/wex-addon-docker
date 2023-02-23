@@ -2,6 +2,7 @@
 
 containerStartedArgs() {
   _DESCRIPTION="Return true if one or many container is started"
+  # shellcheck disable=SC2034
   _ARGUMENTS=(
     'names n "Names of containers separated by a comma. By default return true if any of them is started." true'
     'all a "Expect all containers to be started" false'

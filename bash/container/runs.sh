@@ -2,6 +2,7 @@
 
 containerRunsArgs() {
   _DESCRIPTION="Return true if docker container runs"
+  # shellcheck disable=SC2034
   _ARGUMENTS=(
     'container c "Container name" true'
     'all a "All, included stopped ones" false'

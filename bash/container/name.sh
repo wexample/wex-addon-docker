@@ -2,6 +2,7 @@
 
 containerNameArgs() {
   _DESCRIPTION="Return full container name based on its id"
+  # shellcheck disable=SC2034
   _ARGUMENTS=(
     'id i "Id of container" true'
   )
