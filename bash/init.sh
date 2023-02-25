@@ -11,7 +11,7 @@ _wexDockerFindImageDir() {
       local IMAGES=($(ls -1 "${DIR_IMAGES}"))
 
       for DIR_IMAGE in ${IMAGES[@]}; do
-        if [ "${DIR_IMAGE}" = "${1}" ];then
+        if [ "${DIR_IMAGE}" = "${1}" ]; then
           echo "${DIR_IMAGES}${DIR_IMAGE}/"
         fi
       done
@@ -26,16 +26,16 @@ _wexDockerImageBuild() {
 
   NAME=$(basename "${DIR}")
   DEPENDS_FROM=$(wex-exec default::config/getValue -f="${DOCKERFILE}" -k=FROM)
-  DEPENDS_FROM_WEX=$(sed -e 's/wexample\/\([^:]\{0,\}\):.\{0,\}/\1/' <<< ${DEPENDS_FROM})
+  DEPENDS_FROM_WEX=$(sed -e 's/wexample\/\([^:]\{0,\}\):.\{0,\}/\1/' <<<${DEPENDS_FROM})
 
   # Build parent.
-  if [ "${DEPENDS_FROM}" != "${DEPENDS_FROM_WEX}" ];then
+  if [ "${DEPENDS_FROM}" != "${DEPENDS_FROM_WEX}" ]; then
     _wexLog "Depends from ${DEPENDS_FROM_WEX}"
     local PARENT_IMAGE_DIR
     PARENT_IMAGE_DIR=$(_wexDockerFindImageDir "${DEPENDS_FROM_WEX}")
 
     _wexDockerImageBuild "${PARENT_IMAGE_DIR}" "${3}" "${3}"
-  fi;
+  fi
 
   _wexLog "Building docker image ${NAME}"
 
@@ -53,7 +53,7 @@ _wexDockerImageBuild() {
   # If no cache is set.
   if [ "${2}" = "true" ]; then
     BUILD_CACHE='--no-cache'
-  fi;
+  fi
 
   # Use wex version as tag
   local TAG_BASE=wexample/${NAME}
@@ -61,7 +61,7 @@ _wexDockerImageBuild() {
   local BUILD_QUIET=''
   if [ "${QUIET}" = true ]; then
     BUILD_QUIET='-q'
-  fi;
+  fi
 
   # Set build context.
   cd "${WEX_DIR_ROOT}"

@@ -15,32 +15,30 @@ containerStarted() {
   local NAMES=$(wex-exec default::string/split -t="${NAMES}")
 
   # Allow several names.
-  for NAME in ${NAMES[@]}
-  do
+  for NAME in ${NAMES[@]}; do
     local RUNS=false
 
     # Inspect not stopped containers
-    for CONTAINER_ID in ${RUNNING[@]}
-    do
+    for CONTAINER_ID in ${RUNNING[@]}; do
       local CONTAINER_NAME
       CONTAINER_NAME=$(wex-exec docker::container/name -i="${CONTAINER_ID}")
 
       # Searched is running.
-      if [ "${CONTAINER_NAME}" = "${NAME}" ];then
+      if [ "${CONTAINER_NAME}" = "${NAME}" ]; then
         RUNS=true
 
         # Only one is enough.
-        if [ "${ALL}" != true ];then
+        if [ "${ALL}" != true ]; then
           echo true
           return
         fi
       fi
-    done;
-  done;
+    done
+  done
 
   # All containers should runs,
   # any has been detected as not running.
-  if [ "${ALL}" = true ];then
+  if [ "${ALL}" = true ]; then
     echo true
     return
   fi

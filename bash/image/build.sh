@@ -13,7 +13,7 @@ imageBuild() {
   local IMAGE_DIR
   IMAGE_DIR=$(_wexDockerFindImageDir "${IMAGE_NAME}")
 
-  if [ "${IMAGE_DIR}" != "" ];then
+  if [ "${IMAGE_DIR}" != "" ]; then
     _wexMessage "Found image ${IMAGE_NAME}" "Directory ${IMAGE_DIR}"
     _wexDockerImageBuild "${IMAGE_DIR}" "${FLUSH_CACHE}" "${FLUSH_PARENT_CACHES}"
   fi

@@ -11,7 +11,7 @@ containerRunsArgs() {
 }
 
 containerRuns() {
-  if [ "${ALL}" = true ];then
+  if [ "${ALL}" = true ]; then
     ALL="-a"
   fi
 
@@ -19,5 +19,5 @@ containerRuns() {
     echo true
   else
     echo false
-  fi;
+  fi
 }
