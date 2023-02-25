@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 imageBuildArgs() {
+  _DESCRIPTION="Build a wex image"
   # shellcheck disable=SC2034
   _ARGUMENTS=(
     'image_name n "Image to build, should exists in a addon service" true'
