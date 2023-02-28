@@ -34,7 +34,7 @@ _wexDockerImageBuild() {
     local PARENT_IMAGE_DIR
     PARENT_IMAGE_DIR=$(_wexDockerFindImageDir "${DEPENDS_FROM_WEX}")
 
-    _wexDockerImageBuild "${PARENT_IMAGE_DIR}" "${3}" "${3}"
+    _wexDockerImageBuild "${PARENT_IMAGE_DIR}" "${2}" "${3}"
   fi
 
   _wexLog "Building docker image ${NAME}"
